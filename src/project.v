@@ -1,6 +1,6 @@
 module tt_um_half_adder (
-    input  wire [7:0] ui,
-    output wire [7:0] uo,
+    input  wire [7:0] ui_in,
+    output wire [7:0] uo_out,
     input  wire [7:0] uio_in,
     output wire [7:0] uio_out,
     output wire [7:0] uio_oe,
@@ -10,15 +10,15 @@ module tt_um_half_adder (
 );
 
     // Half Adder
-    // ui[0] = A
-    // ui[1] = B
-    // uo[0] = Sum
-    // uo[1] = Carry
+    // ui_in[0] = A
+    // ui_in[1] = B
+    // uo_out[0] = SUM
+    // uo_out[1] = CARRY
 
-    assign uo[0] = ui[0] ^ ui[1];  // Sum
-    assign uo[1] = ui[0] & ui[1];  // Carry
+    assign uo_out[0] = ui_in[0] ^ ui_in[1];
+    assign uo_out[1] = ui_in[0] & ui_in[1];
 
-    assign uo[7:2] = 6'b0;
+    assign uo_out[7:2] = 6'b0;
 
     assign uio_out = 8'b0;
     assign uio_oe  = 8'b0;
