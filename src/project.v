@@ -8,3 +8,21 @@ module tt_um_half_adder (
     input  wire       clk,
     input  wire       rst_n
 );
+
+    // Half Adder
+    // ui_in[0] = A
+    // ui_in[1] = B
+    // uo_out[0] = SUM
+    // uo_out[1] = CARRY
+
+    assign uo_out[0] = ui_in[0] ^ ui_in[1];
+    assign uo_out[1] = ui_in[0] & ui_in[1];
+
+    // Unused outputs
+    assign uo_out[7:2] = 6'b0;
+
+    // Bidirectional pins unused
+    assign uio_out = 8'b0;
+    assign uio_oe  = 8'b0;
+
+endmodule
