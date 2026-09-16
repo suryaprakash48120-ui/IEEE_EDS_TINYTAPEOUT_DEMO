@@ -29,7 +29,7 @@ module tb ();
     end
 
     // Half Adder instance
-    tt_um_half_adder uut (
+  tt_um_half_adder (
 `ifdef GL_TEST
         .VPWR(VPWR),
         .VGND(VGND),
