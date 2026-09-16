@@ -3,17 +3,12 @@
 
 module tb ();
 
-    // Dump signals to FST file
-    initial begin
-        $dumpfile("tb.fst");
-        $dumpvars(0, tb);
-        #1;
-    end
-
-    // Inputs
+    // Clock and control signals
     reg clk;
     reg rst_n;
     reg ena;
+
+    // Inputs
     reg [7:0] ui_in;
     reg [7:0] uio_in;
 
@@ -27,7 +22,13 @@ module tb ();
     wire VGND = 1'b0;
 `endif
 
-    // Instantiate Half Adder
+    // Waveform dump
+    initial begin
+        $dumpfile("tb.fst");
+        $dumpvars(0, tb);
+    end
+
+    // Half Adder instance
     tt_um_half_adder uut (
 `ifdef GL_TEST
         .VPWR(VPWR),
